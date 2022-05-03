@@ -1,0 +1,29 @@
+:root{
+    --primaryColor: #38404B;
+    --accentColor: #94ADCF;
+
+    --fontFamily: 'Ubuntu', sans-serif;
+
+    --fontWeightTitle: 700;
+    --fontWeightSubTitle: 400;
+    --fontWeightItens: 500;
+}
+
+body{
+    background-color: var(--primaryColor);
+    color: var(--accentColor);
+    font-family: var(--fontFamily);
+}
+
+h1{
+    
+    font-weight: var(--fontWeightTitle);
+}
+
+h2{
+    font-weight: var(--fontWeightSubTitle);
+}
+
+.completed{
+    text-decoration: line-through;
+}
