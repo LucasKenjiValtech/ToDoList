@@ -20,6 +20,7 @@ function InitElements() {
     addTaskButton = document.getElementById("addTask");
 
     toDoList = document.querySelector("#to-do-itens .content")
+    completedList = document.querySelector("#completed-itens .content");
 }
 
 function toggleModal(){
@@ -40,7 +41,7 @@ function CreateTask(){
     taskInput.value = ""
 
     if(ValidateTask(inputValue)){
-        InsertElement(inputValue, toDoArray ,toDoList)
+        InsertElementToDo(inputValue, toDoArray ,toDoList)
     }else{
         alert("Digite algo antes de adicionar uma tarefa")
     }
@@ -56,26 +57,89 @@ function ValidateTask(value){
 }
 
 
-function InsertElement( value, array, list){
-    array.push(value);
-    array.sort();
-    list.innerHTML = "";
+function InsertElementToDo(value){
+    toDoArray.push(value);
+    toDoArray.sort();
 
-    for(i = 0; i < array.length; i++){
-        let task = CreateElement(array[i]);
-        list.append(task);
-        
-    }
+    RefreshToDo();
    
     toggleModal();
 }
 
-function CreateElement(value){
+function RefreshToDo(){
+    toDoList.innerHTML = "";
+
+    for(i = 0; i < toDoArray.length; i++){
+        let task = CreateElementToDo(toDoArray[i]);
+        toDoList.append(task);  
+    }
+}
+
+function CreateElementToDo(value){
     let task = document.createElement("label")
     task.id = value;
     task.innerHTML = `
         <input type="checkbox">
         <div>${value}</div>`
+    task.children[0].addEventListener("click", ToggleTask)
+    return task;
+}
+
+function ToggleTask(){
+    let taskName = this.parentElement.id
+    if(this.checked == true){
+        CompleteTask(taskName);
+    }else{
+        UncompleteTask(taskName);
+    }
+}
+
+function CompleteTask(name){
+    let toDoIndex = toDoArray.indexOf(name)
+    toDoArray.splice(toDoIndex, 1);
+    InsertElementCompleted(name)
+    RefreshToDo();
+}
+
+function UncompleteTask(name){
+    let completedIndex = completedArray.indexOf(name)
+    completedArray.splice(completedIndex, 1);
+    InsertElementUncompleted(name)
+    RefreshToDo();
+}
+
+function InsertElementUncompleted(value){
+    toDoArray.push(value);
+    toDoArray.sort();
+    RefreshCompleted();
+}
+
+
+function InsertElementCompleted(value){
+    completedArray.push(value);
+    completedArray.sort();
+
+    RefreshCompleted();
+}
+
+function RefreshCompleted(){
+    completedList.innerHTML = "";
+
+    for(i = 0; i < completedArray.length; i++){
+        let task = CreateElementCompleted(completedArray[i]);
+        completedList.append(task);  
+    }
+}
+
+function CreateElementCompleted(value){
+    let task = document.createElement("label")
+    task.id = value;
+    task.innerHTML = `
+        <input type="checkbox">
+        <div>${value}</div>`
+    task.children[0].addEventListener("click", ToggleTask)
+    task.classList.add("completed")
+    task.children[0].checked = true;
     return task;
 }
 
