@@ -15,7 +15,7 @@
     <body>
         <header>
             <h1>My Tasks</h1>
-            <div class="form-modal">
+            <div id="form-modal" class="modal-closed">
                 <form action="">
                     <input type="text" placeholder="Add new task">
                     <button>
@@ -57,9 +57,11 @@
             </div>
         </main>
         <footer>
-            <button id="openModal"  class="plus-button">
+            <button id="buttonModal"  class="plus-button" onclick="toggleModal()">
                 <img src="src/assets/img/Plus.svg" alt="">
             </button>
         </footer>
+
+        <script src="src/assets/js/main.js"></script>
     </body>
 </html>
