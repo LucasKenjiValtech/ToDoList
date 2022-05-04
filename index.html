@@ -16,12 +16,12 @@
         <header>
             <h1>My Tasks</h1>
             <div id="form-modal" class="modal-closed">
-                <form action="">
-                    <input type="text" placeholder="Add new task">
-                    <button>
+                <div>
+                    <input type="text" id="taskInput" placeholder="Add new task">
+                    <button id="addTask" onclick="createTask()">
                         <img src="src/assets/img/Vector.svg" alt="">
                     </button>
-                </form>
+                </div>
             </div>
             <button class="burguer-button">
                 <img src="src/assets/img/Burger.svg" alt="">
@@ -30,18 +30,7 @@
         <main>
             <div id="to-do-itens">
                 <div class="content">
-                    <label for="">
-                        <input type="checkbox">
-                        <div>Go Shopping</div>
-                    </label>
-                    <label for="">
-                        <input type="checkbox">
-                        <div>Short Exercise</div>
-                    </label>
-                    <label for="">
-                        <input type="checkbox">
-                        <div>Meditation</div>
-                    </label>
+                    
                 </div>
             </div>
             <div id="completed-itens">

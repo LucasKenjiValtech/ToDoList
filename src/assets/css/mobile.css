@@ -36,12 +36,12 @@ button{
     background-color: rgba(56, 64, 75, 0.8);
 }
 
-form{
+#form-modal div{
     position: relative;
     margin-top: 130px;
 }
 
-    form input[type="text"]{
+    #form-modal div input[type="text"]{
         border: none;
         color: var(--accentColor);
         box-shadow: 1px 1px 2px rgba(136, 141, 147, 0.3), -1px -1px 2px rgba(46, 53, 62, 0.5), inset -3px 3px 6px rgba(46, 53, 62, 0.2), inset 3px -3px 6px rgba(46, 53, 62, 0.2), inset -3px -3px 6px rgba(66, 75, 88, 0.9), inset 3px 3px 8px rgba(46, 53, 62, 0.9);
@@ -54,11 +54,11 @@ form{
         font-size: 16px;
     }
 
-    form input[type="text"]::placeholder{
+    #form-modal div input[type="text"]::placeholder{
         color: rgba(148, 173, 207, 0.7);
     }
 
-form button{
+#form-modal div button{
     position: absolute;
     right: 10px;
     top: 17px;
