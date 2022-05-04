@@ -6,6 +6,9 @@ var addTaskButton;
 var toDoList;
 var completedList;
 
+var toDoArray = [];
+var completedArray = [];
+
 InitElements();
 
 function InitElements() {
@@ -32,19 +35,19 @@ function toggleModal(){
     }
 }
 
-function createTask(){
+function CreateTask(){
     let inputValue = taskInput.value;
     taskInput.value = ""
 
-    if(validateTask(inputValue)){
-        inspectList(inputValue)
+    if(ValidateTask(inputValue)){
+        InsertElement(inputValue, toDoArray ,toDoList)
     }else{
         alert("Digite algo antes de adicionar uma tarefa")
     }
     
 }
 
-function validateTask(value){
+function ValidateTask(value){
     if(value.length > 0){
         return true;
     }else{
@@ -52,33 +55,27 @@ function validateTask(value){
     }
 }
 
-function inspectList(value){
-    if(toDoList.children.length == 0){
-        insertElement(false, value, toDoList)
+
+function InsertElement( value, array, list){
+    array.push(value);
+    array.sort();
+    list.innerHTML = "";
+
+    for(i = 0; i < array.length; i++){
+        let task = CreateElement(array[i]);
+        list.append(task);
+        
     }
-    else{
-        insertElement(true, value, toDoList)
-    }
+   
+    toggleModal();
 }
 
-function insertElement(hasChild, value, list){
+function CreateElement(value){
     let task = document.createElement("label")
     task.id = value;
     task.innerHTML = `
         <input type="checkbox">
         <div>${value}</div>`
-    
-    if(hasChild){
-        for(i = 0; i < list.children.length; i++){
-            if(task.id < list.children[i].id){
-                list.children[i].before(task);
-            }
-        }
-    }else{
-        list.append(task);
-    }
-
-    toggleModal();
-    console.log(list)
+    return task;
 }
 
