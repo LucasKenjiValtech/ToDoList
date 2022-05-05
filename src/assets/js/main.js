@@ -56,9 +56,13 @@ function ValidateTask(value){
     }
 }
 
+function FirstLetterUppercase(text){
+    var result = text.toLowerCase();
+    return result.charAt(0).toUpperCase() + result.slice(1);
+}
 
 function InsertElementToDo(value){
-    toDoArray.push(value);
+    toDoArray.push(FirstLetterUppercase(value));
     toDoArray.sort();
 
     RefreshToDo();
@@ -109,14 +113,14 @@ function UncompleteTask(name){
 }
 
 function InsertElementUncompleted(value){
-    toDoArray.push(value);
+    toDoArray.push(FirstLetterUppercase(value));
     toDoArray.sort();
     RefreshCompleted();
 }
 
 
 function InsertElementCompleted(value){
-    completedArray.push(value);
+    completedArray.push(FirstLetterUppercase(value));
     completedArray.sort();
 
     RefreshCompleted();
