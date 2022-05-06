@@ -1,39 +1,25 @@
-var buttonModal;
-var imgButtonModal;
-var modal;
-var taskInput;
-var addTaskButton;
-var toDoList;
-var completedList;
+const buttonModal = document.getElementById("buttonModal");
+const modal = document.getElementById("form-modal");
+const imgButtonModal = document.querySelector("#buttonModal img");
 
-var toDoArray = [];
-var completedArray = [];
+const taskInput = document.getElementById("taskInput");
+const addTaskButton = document.getElementById("addTask");
 
-InitElements();
+const toDoList = document.querySelector("#to-do-itens .content")
+const completedList = document.querySelector("#completed-itens .content");
 
-function InitElements() {
-    buttonModal = document.getElementById("buttonModal");
-    modal = document.getElementById("form-modal");
-    imgButtonModal = document.querySelector("#buttonModal img");
-
-    taskInput = document.getElementById("taskInput");
-    addTaskButton = document.getElementById("addTask");
-
-    toDoList = document.querySelector("#to-do-itens .content")
-    completedList = document.querySelector("#completed-itens .content");
-}
-
+const toDoArray = [];
+const completedArray = [];
 
 function CreateTask(){
     let inputValue = taskInput.value;
     taskInput.value = ""
 
     if(ValidateTask(inputValue)){
-        InsertElementToDo(inputValue, toDoArray ,toDoList)
+        InsertElementToDo(inputValue)
     }else{
         alert("Digite algo antes de adicionar uma tarefa")
     }
-    
 }
 
 function ValidateTask(value){
@@ -45,7 +31,7 @@ function ValidateTask(value){
 }
 
 function FirstLetterUppercase(text){
-    var result = text.toLowerCase();
+    let result = text.toLowerCase();
     return result.charAt(0).toUpperCase() + result.slice(1);
 }
 
@@ -60,19 +46,25 @@ function InsertElementToDo(value){
 function RefreshToDo(){
     toDoList.innerHTML = "";
 
-    for(i = 0; i < toDoArray.length; i++){
-        let task = CreateElementToDo(toDoArray[i]);
+    toDoArray.forEach((toDo) => {
+        let task = CreateElementToDo(toDo);
         toDoList.append(task);  
-    }
+    }) 
 }
 
 function CreateElementToDo(value){
-    let task = document.createElement("label")
+    let task = document.createElement("label");
     task.id = value;
-    task.innerHTML = `
-        <input type="checkbox">
-        <div>${value}</div>`
-    task.children[0].addEventListener("click", ToggleTask)
+
+    let input = document.createElement("input");
+    input.type = "checkbox";
+    input.addEventListener("click", ToggleTask);
+    task.append(input);
+
+    let text = document.createElement("div")
+    text.textContent = value;
+    task.append(text)
+    
     return task;
 }
 
@@ -116,21 +108,26 @@ function InsertElementCompleted(value){
 function RefreshCompleted(){
     completedList.innerHTML = "";
 
-    for(i = 0; i < completedArray.length; i++){
-        let task = CreateElementCompleted(completedArray[i]);
+    completedArray.forEach((completed) => {
+        let task = CreateElementCompleted(completed);
         completedList.append(task);  
-    }
+    }) 
 }
 
 function CreateElementCompleted(value){
-    let task = document.createElement("label")
-    task.id = value;
-    task.innerHTML = `
-        <input type="checkbox">
-        <div>${value}</div>`
-    task.children[0].addEventListener("click", ToggleTask)
+    let task = document.createElement("label");
     task.classList.add("completed")
-    task.children[0].checked = true;
+    task.id = value;
+
+    let input = document.createElement("input");
+    input.type = "checkbox";
+    input.checked = true;
+    input.addEventListener("click", ToggleTask);
+    task.append(input);
+
+    let text = document.createElement("div")
+    text.textContent = value;
+    task.append(text)
+
     return task;
 }
-
