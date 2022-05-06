@@ -4,77 +4,35 @@
     
     body{
         max-width: 1280px;
-        display: flex;
         margin: 0 auto;
-        align-items: center;
-        flex-direction: column;
     }
 
     h1{
         font-size: 24px;
-        display: none;
     }
     
     h2{
         font-size: 28px;
     }
     
-    button{
-        border: none;
-        background-color: var(--primaryColor);
-    }
-
-    #form-modal{
-    }
-
-    #form-modal div{
+    .input-container div{
         position:absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        
     }
     
-        #form-modal div input[type="text"]{
-            border: none;
-            color: var(--accentColor);
-            box-shadow: 1px 1px 2px rgba(136, 141, 147, 0.3), -1px -1px 2px rgba(46, 53, 62, 0.5), inset -3px 3px 6px rgba(46, 53, 62, 0.2), inset 3px -3px 6px rgba(46, 53, 62, 0.2), inset -3px -3px 6px rgba(66, 75, 88, 0.9), inset 3px 3px 8px rgba(46, 53, 62, 0.9);
-            background-color: var(--primaryColor);
-            height: 59px;
-            width: 578px;
-            border-radius: 16px;
-            padding: 0 14px;
-            font-size: 16px;
-        }
-    
-        #form-modal div input[type="text"]::placeholder{
-            color: rgba(148, 173, 207, 0.7);
-            background-color: transparent;
-        }
-    
-    #form-modal div button{
-        position: absolute;
-        z-index: 100;
-        top: 17px;
-        right: 15px;
-    }
+        .input-container div input[type="text"]{
+            width: 578px;        }
 
     header{
         width: 92%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 75px;
-        margin-bottom: 150px;
-        position: relative;
+        margin-bottom: 100px;
+        padding-top: 0;
     }
     
     main{
         width:85%;
-    }
-
-    .title{
-        margin-bottom: 75px;
     }
 
     .content{
@@ -82,38 +40,4 @@
         grid-template-columns: 1fr 1fr;
         column-gap: 11%;
     }
-
-    label{
-        display: flex;
-        align-items: center;
-        height: 59px;
-        box-shadow: -5px 5px 10px rgba(48, 54, 64, 0.2), 5px -5px 10px rgba(48, 54, 64, 0.2), -5px -5px 10px rgba(64, 74, 86, 0.9), 5px 5px 13px rgba(48, 54, 64, 0.9), inset 1px 1px 2px rgba(64, 74, 86, 0.3), inset -1px -1px 2px rgba(48, 54, 64, 0.5);
-        border-radius: 16px;
-        margin-bottom: 50px;
-        padding: 0 14px;
-        font-size: 21px;
-    }
-    
-    label input{
-        all: unset;
-        width: 15px;
-        height: 15px;
-        border: 2px solid var(--accentColor);
-        border-radius: 50%;
-        margin-right: 10px;
-    }
-    
-        label input:checked{
-            background-color: var(--accentColor);
-        }
-    
-    label div{
-        display: inline;
-        font-weight: var(--fontWeightItens);
-    }
-
-    footer{
-        display: none;
-    }
-
 }

@@ -13,8 +13,8 @@ h2{
 }
 
 button{
-    border: none;
     background-color: var(--primaryColor);
+    border: none;
 }
 
 .modal-opened{
@@ -25,40 +25,43 @@ button{
     display: none;
 }
 
-#form-modal{
+.input-container{
     position: absolute;
-    justify-content: center;
-    justify-content: center;
     top: 0;
     left: 0;
     height: 100%;
     width: 100%;
+    justify-content: center;
+    
+    
     background-color: rgba(56, 64, 75, 0.8);
 }
 
-#form-modal div{
+.input-container div{
     position: relative;
     margin-top: 130px;
 }
 
-    #form-modal div input[type="text"]{
-        border: none;
-        color: var(--accentColor);
-        box-shadow: 1px 1px 2px rgba(136, 141, 147, 0.3), -1px -1px 2px rgba(46, 53, 62, 0.5), inset -3px 3px 6px rgba(46, 53, 62, 0.2), inset 3px -3px 6px rgba(46, 53, 62, 0.2), inset -3px -3px 6px rgba(66, 75, 88, 0.9), inset 3px 3px 8px rgba(46, 53, 62, 0.9);
-        background-color: var(--primaryColor);
+    .input-container div input[type="text"]{
         height: 59px;
         width: 300px;
-        border-radius: 16px;
         margin-bottom: 30px;
         padding: 0 14px;
+
+        background-color: var(--primaryColor);
+        color: var(--accentColor);
+        box-shadow: 1px 1px 2px rgba(136, 141, 147, 0.3), -1px -1px 2px rgba(46, 53, 62, 0.5), inset -3px 3px 6px rgba(46, 53, 62, 0.2), inset 3px -3px 6px rgba(46, 53, 62, 0.2), inset -3px -3px 6px rgba(66, 75, 88, 0.9), inset 3px 3px 8px rgba(46, 53, 62, 0.9);
+        border-radius: 16px;
+        border: none;
+       
         font-size: 16px;
     }
 
-    #form-modal div input[type="text"]::placeholder{
+    .input-container div input[type="text"]::placeholder{
         color: rgba(148, 173, 207, 0.7);
     }
 
-#form-modal div button{
+.input-container div button{
     position: absolute;
     right: 10px;
     top: 17px;
@@ -66,17 +69,10 @@ button{
 
 header{
     display: flex;
-    padding-top: 57px;
     justify-content: space-between;
-    padding-bottom: 35px;
-}
-
-main{
-    padding-top: 35px;
-}
-
-.completed-itens{
-    margin-top: 40px;
+    padding-top: 57px;
+    padding-bottom: 55px;
+   
 }
 
 .title{
@@ -87,20 +83,24 @@ label{
     display: flex;
     align-items: center;
     height: 42px;
-    box-shadow: -5px 5px 10px rgba(48, 54, 64, 0.2), 5px -5px 10px rgba(48, 54, 64, 0.2), -5px -5px 10px rgba(64, 74, 86, 0.9), 5px 5px 13px rgba(48, 54, 64, 0.9), inset 1px 1px 2px rgba(64, 74, 86, 0.3), inset -1px -1px 2px rgba(48, 54, 64, 0.5);
-    border-radius: 16px;
     margin-bottom: 30px;
     padding: 0 14px;
+
+    box-shadow: -5px 5px 10px rgba(48, 54, 64, 0.2), 5px -5px 10px rgba(48, 54, 64, 0.2), -5px -5px 10px rgba(64, 74, 86, 0.9), 5px 5px 13px rgba(48, 54, 64, 0.9), inset 1px 1px 2px rgba(64, 74, 86, 0.3), inset -1px -1px 2px rgba(48, 54, 64, 0.5);
+    border-radius: 16px;
+    
     font-size: 16px;
 }
 
 label input{
     all: unset;
+    
     width: 12px;
     height: 12px;
+    margin-right: 10px;
+    
     border: 2px solid var(--accentColor);
     border-radius: 50%;
-    margin-right: 10px;
 }
 
     label input:checked{
@@ -109,18 +109,20 @@ label input{
 
 label div{
     display: inline;
+
     font-weight: var(--fontWeightItens);
 }
 
 .plus-button{
-    background-color: var(--primaryColor);
-    box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3), inset -1px -1px 2px rgba(22, 26, 30, 0.5);
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
     position: fixed;
     bottom: 65px;
-    right: 30px;
+    right: 30px;   
+    width: 60px;
+    height: 60px;
+
+    background-color: var(--primaryColor);
+    box-shadow: -1px 1px 2px rgba(22, 26, 30, 0.2), 1px -1px 2px rgba(22, 26, 30, 0.2), -1px -1px 2px rgba(90, 102, 120, 0.9), 1px 1px 3px rgba(22, 26, 30, 0.9), inset 1px 1px 2px rgba(90, 102, 120, 0.3), inset -1px -1px 2px rgba(22, 26, 30, 0.5);
+    border-radius: 50%;
 }
 
 .plus-button-close{
